@@ -4,7 +4,21 @@
 @theme {
     --font-body-font: "Onest";
     --font-header-font: "Rubik";
-    --tracking-header: .8rem;
+    --tracking-header: .4rem;
+
+    --color-primary-100: #D3DFFF;
+    --color-primary-200: #6590FF;
+
+    --color-secondary-100: #FFE5D3;
+    --color-secondary-200: #FE9A53;
+    --color-secondary-300: #E96F19;
+
+    --color-dark: #242343;
+}
+
+h1, h2, h3, h4, h5, h6, h7, p {
+    color: #242343;
+    font-family: "Onest";
 }
 
 p {
