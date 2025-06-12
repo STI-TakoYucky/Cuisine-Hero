@@ -24,3 +24,11 @@ h1, h2, h3, h4, h5, h6, h7, p {
 p {
     font-size: 16px;
 }
+
+.carousel-image {
+    transition: all .3s ease-in-out;
+}
+
+.carousel-item:hover .carousel-image {
+    scale: 1.2;
+}

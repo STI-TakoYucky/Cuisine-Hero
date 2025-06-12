@@ -1,3 +1,3 @@
 export interface CustomCarouselComponentProps {
-    items: number
+    recipes: any
 }
