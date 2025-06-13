@@ -32,3 +32,15 @@ p {
 .carousel-item:hover .carousel-image {
     scale: 1.2;
 }
+
+.tag-hover:hover .tag-icon {
+    color: #FE9A53
+}
+
+.tag-header {
+    color: white
+}
+
+.tag-hover:hover .tag-header {
+    color: #FE9A53  !important
+}
