@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import {
   Carousel,
   CarouselContent,
@@ -22,11 +21,14 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
         dragFree: true,
         watchDrag: recipes != null && recipes.length > 5
         }}
-        className="w-full mt-5"
+        className="w-full mt-5 select-none"
         >
         <CarouselContent className='pb-4'>
-        {recipes.map((recipe:any, index: number) => (
-           <CarouselItem key={index} className='pl-5 basis-1/5'>
+        {recipes.map((recipe:any, index: number) => 
+            {
+            let id: string = recipe.canonical_id.replace("recipe:", "")
+            return (
+           <CarouselItem id={id} key={index} className='pl-5 basis-1/5' onClick={() => alert("wdan")}>
             <div className="w-[19rem] h-[28rem] rounded-md bg-white shadow-md flex flex-col overflow-hidden carousel-item hover:bg-slate-100 hover:translate-y-3 cursor-pointer transition-all duration-200 ease-in-out hover:shadow-none">
                 
                 <div className='overflow-hidden'>
@@ -37,12 +39,12 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
                 />
                 </div>
 
-                <div className='p-5 flex flex-col justify-between flex-1'>
+                <div className='flex flex-col justify-between flex-1 p-5'>
 
-                <div className='flex gap-2 flex-col'>
+                <div className='flex flex-col gap-2'>
                     <h1 className='text-[1.1rem] !font-medium'>{recipe.name}</h1>
 
-                    <div className='flex items-center gap-5 w-full'>
+                    <div className='flex items-center w-full gap-5'>
                     {recipe.cook_time_minutes !== 0 && recipe.prep_time_minutes !== 0 && (
                         <span className='flex items-center gap-2'>
                         <FaRegClock className='text-[1.6rem] text-secondary-200'/>
@@ -51,7 +53,7 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
                     )}
                     <span className='flex items-center gap-2'>
                         <FaBowlFood className='text-[1.6rem] text-secondary-200'/>
-                        <p className='!text-[0.875rem]'>{recipe.num_servings} servings</p>
+                        <p className='!text-[0.875rem]'>{recipe.num_servings > 1 ? recipe.num_servings + " servings": recipe.num_servings + " serving"}</p>
                     </span>
                     </div>
                 </div>
@@ -67,7 +69,7 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
 
             </div>
             </CarouselItem>
-           ))}
+           )})}
         </CarouselContent>
     </Carousel>
     </>
