@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className='fixed flex w-full items-cente px-[7.5rem] py-[2.313rem]'>
+    <header className='fixed flex w-full items-cente px-[7.5rem] py-[2.313rem] z-50 bg-white'>
         <div className="absolute inset-0 -z-50">
             <div className="w-full h-full bg-gradient-to-b blur-md from-primary-100 to-white"></div>
         </div>
