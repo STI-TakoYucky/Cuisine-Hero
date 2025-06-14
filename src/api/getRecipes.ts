@@ -1,4 +1,4 @@
-export const getRecipes = async (tags:string | "") => {
+export const getRecipes = async (tags:string) => {
     try {
         const response = await fetch(`http://localhost:3000/api/${tags}`)
         return response;

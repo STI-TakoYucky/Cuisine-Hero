@@ -51,8 +51,8 @@ export default function HeroSection() {
 
   return (
     <section className="fixed -top-[0rem] w-full -z-10" ref={root}>
-      <div className="relative flex justify-center -z-10">
-         <div className="w-[115rem] rounded-full h-[115rem] -top-[103rem] absolute bg-radial-[at_0%_100%] blur-3xl to-white from-primary-100"></div>
+      <div className="absolute inset-0 -z-50">
+          <div className="w-full h-[15rem] bg-gradient-to-b blur-md from-primary-100 to-white"></div>
       </div>
 
       <div className="flex flex-col items-center justify-center h-screen">
