@@ -24,7 +24,7 @@ export default function RecipeList() {
   return (
     <>
         <Header></Header>
-        <main>
+        <main className='pt-[8rem] -z-50'>
             <ListComponent recipes={recipes}></ListComponent>
         </main>
     </>

@@ -8,8 +8,24 @@ import React, { useEffect, useState } from 'react'
 import { FaBowlFood, FaRegClock } from 'react-icons/fa6'
 import { useParams } from 'react-router-dom'
 
+function AsideSkeleton() {
+  return (
+    <div className='sticky w-[22rem] ml-[7.5rem] mr-[3rem] h-[90%] overflow-y-auto bg-slate-200 rounded-md'></div>
+  )
+}
+
+function MainSkeleton() {
+    return (
+        <div className='flex-1 pr-10 h-screen overflow-y-auto scrollbar-hidden bg-slate-200'>
+
+        </div>
+    )
+}
+
+
 export default function RecipeDetails() {
 
+    const [loading, setLoading] = useState<boolean>(true)
     const [recipe, setRecipe] = useState<any>({})
     //get the params from the url
     const params = useParams<{ recipeId: string }>()
@@ -19,6 +35,11 @@ export default function RecipeDetails() {
             const response = await getRecipes(params.recipeId || "")
             const data = await response?.json()
             setRecipe(data)
+            setTimeout(() => {
+                
+            }, 2500);
+            setLoading(false)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         fetchRecipe()
@@ -27,7 +48,10 @@ export default function RecipeDetails() {
   return (
     <>
         <Header></Header>
-        <aside className='fixed h-screen mt-[8rem] ml-[7.5rem]'>
+        <div className='flex pt-[8rem] h-screen overflow-hidden'>
+
+        { loading ? <AsideSkeleton></AsideSkeleton> :
+        <aside className='sticky w-[22rem] ml-[7.5rem] mr-[3rem] h-full overflow-y-auto'>
             <div className="overflow-hidden">
                 <img
                     src={recipe.image}
@@ -46,8 +70,12 @@ export default function RecipeDetails() {
                 }
                 </ul>
             </section>
-            </aside>
-        <main className='w-full relative top-[7rem] left-[32rem]'>
+        </aside>}
+
+        <main className='flex-1 pr-10 h-screen overflow-y-auto scrollbar-hidden'>
+           { loading ? <MainSkeleton></MainSkeleton> :
+            <>
+            
             <section className='flex flex-col'>
                 <h1 className='!font-header-font font-medium tracking-header text-[2.5rem]'>{recipe.name}</h1>
 
@@ -106,11 +134,13 @@ export default function RecipeDetails() {
                     </div>
                 )})}
             </section>
+            </>}
 
             <section>
                 <MealsComponent headerName={'MORE RECIPES'}/>
             </section>
         </main>
+        </div>
     </>
   )
 }

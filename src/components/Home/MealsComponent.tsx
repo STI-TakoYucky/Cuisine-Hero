@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import CustomCarouselComponent from './CustomCarouselComponent'
 import { getRecipes } from '@/api/getRecipes'
 import { Link } from 'react-router';
+import Skeleton from '../Skeleton';
 
 export default function MealsComponent({ headerName, recipeTags}: {headerName: string, recipeTags?: string}) {
 
   const [recipes, setRecipes] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
    useEffect(() => {
     const fetchRecipes = async () => {
@@ -13,6 +15,9 @@ export default function MealsComponent({ headerName, recipeTags}: {headerName: s
         const response = await getRecipes(recipeTags || "");
         const data = await response?.json();
         setRecipes(data?.recipes || []);
+        setTimeout(() => {
+                  setLoading(false)
+        }, 2500);
       } catch (error) {
         console.error(error);
       }
@@ -29,7 +34,7 @@ export default function MealsComponent({ headerName, recipeTags}: {headerName: s
               <p className='cursor-pointer'>More</p>
           </Link>
         </div>
-        <CustomCarouselComponent recipes={recipes}></CustomCarouselComponent>
+        { loading ? <Skeleton></Skeleton>: <CustomCarouselComponent recipes={recipes}></CustomCarouselComponent>}
     </div>
   )
 }
