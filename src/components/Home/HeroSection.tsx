@@ -5,12 +5,16 @@ import { RiRobot2Line } from "react-icons/ri";
 import { useEffect, useRef, useState } from "react";
 import { animate, createScope } from 'animejs';
 import { TypeAnimation } from 'react-type-animation';
+import { useNavigate } from "react-router";
 
 export default function HeroSection() {
 
   const [searchToggleType, setSearchToggleType] = useState("Search")
   const root = useRef<any>(null)
   const scope = useRef<any>(null)
+
+   const [value, setValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -49,6 +53,12 @@ export default function HeroSection() {
     return () => scope.current.revert()
   }, [])
 
+   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === "Enter") {
+        navigate(`/recipes?q=${encodeURIComponent(value)}`);
+      }
+    };
+
   return (
     <section className="fixed -top-[0rem] w-full -z-10" ref={root}>
       <div className="absolute inset-0 -z-50">
@@ -70,7 +80,7 @@ export default function HeroSection() {
       <div className="relative flex flex-col justify-start opacity-0 fade-in mt-15">
         <div className="flex items-center">
             <IoSearch className="absolute text-2xl left-4 text-dark"></IoSearch>
-            <Input type="search" placeholder="Search" className="pl-12 w-[50rem] text-base border-[2px] border-dark  py-5 text-dark rounded-full"/>
+            <Input onKeyDown={handleKeyDown} value={value} onChange={(e) => setValue(e.target.value)} type="search" placeholder="Search" className="pl-12 w-[50rem] text-base border-[2px] border-dark  py-5 text-dark rounded-full"/>
         </div>
             
         <div className="flex gap-2 mt-6">

@@ -16,7 +16,9 @@ export default function MealsComponent({ headerName, recipeTags}: {headerName: s
         const data = await response?.json();
         setRecipes(data?.recipes || []);
         setTimeout(() => {
-                  setLoading(false)
+          if (data) {
+            setLoading(false)
+          }
         }, 2500);
       } catch (error) {
         console.error(error);
