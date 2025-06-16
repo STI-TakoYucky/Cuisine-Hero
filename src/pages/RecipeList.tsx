@@ -1,7 +1,7 @@
 import { getRecipes } from '@/api/getRecipes'
 import Header from '@/components/Header'
 import ListComponent from '@/components/RecipeList/ListComponent'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from "react-router-dom";
 
 export default function RecipeList() {

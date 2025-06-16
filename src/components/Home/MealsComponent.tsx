@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import CustomCarouselComponent from './CustomCarouselComponent'
 import { getRecipes } from '@/api/getRecipes'
 import { Link } from 'react-router';

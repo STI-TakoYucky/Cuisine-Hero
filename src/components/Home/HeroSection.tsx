@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { RiRobot2Line } from "react-icons/ri";
 import { useEffect, useRef, useState } from "react";
 import { animate, createScope } from 'animejs';
-import { TypeAnimation } from 'react-type-animation';
 import { useNavigate } from "react-router";
 
 export default function HeroSection() {
@@ -19,7 +18,7 @@ export default function HeroSection() {
   useEffect(() => {
 
     //plate animation
-    scope.current = createScope({ root }).add(self => {
+    scope.current = createScope({ root }).add(() => {
       animate('.plate-1', {
         scale: [
           { to: .7, ease: 'inOut(3)', duration: 200 },
