@@ -5,6 +5,8 @@ import { RiRobot2Line } from "react-icons/ri";
 import { useEffect, useRef, useState } from "react";
 import { animate, createScope } from 'animejs';
 import { useNavigate } from "react-router";
+import plate1 from "@/assets/images/Plate1.png";
+import plate2 from "@/assets/images/Plate2.png";
 
 export default function HeroSection() {
 
@@ -65,7 +67,7 @@ export default function HeroSection() {
       </div>
 
       <div className="flex flex-col items-center justify-center h-screen">
-      <img src="src/assets/images/Plate2.png" className="absolute -top-[52rem]  plate-1"></img>
+      <img src={plate2} className="absolute -top-[52rem]  plate-1"></img>
 
       <div className="flex flex-col items-center justify-center">
         <h1 className="fade-in !font-header-font font-semibold tracking-header uppercase text-[3rem] z-50">
@@ -88,7 +90,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <img src="src/assets/images/Plate1.png" className="plate-2 absolute -bottom-[20rem] -z-20"></img>
+      <img src={plate1} className="plate-2 absolute -bottom-[20rem] -z-20"></img>
       </div>
     </section>
   )
