@@ -25,7 +25,7 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
         {recipes.map((recipe:any, index: number) => 
             {
             return (
-           <CarouselItem id={recipe.id} key={index} className='pl-5 basis-1/5'>
+           <CarouselItem id={recipe.id} key={index} className='pl-5 basis-1/2 lg:basis-1/3 xl:basis-1/5'>
             <RecipeCardComponent recipe={recipe}/>
             </CarouselItem>
            )})}
