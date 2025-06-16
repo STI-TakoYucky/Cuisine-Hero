@@ -1,13 +1,10 @@
 import { getRecipes } from '@/api/getRecipes'
 import Header from '@/components/Header'
-import CustomCarouselComponent from '@/components/Home/CustomCarouselComponent'
 import MealsComponent from '@/components/Home/MealsComponent'
-import TagsComponent from '@/components/Home/TagsComponent'
-import { Breadcrumb, BreadcrumbList, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, BreadcrumbPage } from '@/components/ui/breadcrumb'
 import { getDifficultyColor } from '@/lib/utils'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { FaBowlFood, FaRegClock } from 'react-icons/fa6'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 function AsideSkeleton() {
   return (

@@ -1,5 +1,3 @@
-import React from 'react'
-import EasyMealsComponent from './MealsComponent'
 import MealsComponent from './MealsComponent'
 import RecipeOfTheDay from './RecipeOfTheDay'
 import TagsComponent from './TagsComponent'
