@@ -54,3 +54,12 @@ p {
 .scrollbar-hidden::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 765px) {
+  p {
+    font-size: 14px !important;
+  }
+}

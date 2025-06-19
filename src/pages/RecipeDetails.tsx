@@ -51,7 +51,7 @@ export default function RecipeDetails() {
   return (
     <>
       <Header recipeName={recipe.name}></Header>
-      <div className="flex pt-[9.5rem] h-screen overflow-hidden">
+      <div className="flex pt-[9.9rem] h-screen overflow-hidden">
 
         {loading ? (
           <AsideSkeleton></AsideSkeleton>

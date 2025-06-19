@@ -8,6 +8,7 @@ export default function RecipeList() {
 
     const [searchQuery, setSearchQuery] = useSearchParams()
     const queryParams = searchQuery.get("q");
+    const tagParams = searchQuery.get("tag")
     const [recipes, setRecipes] = useState<any>([])
 
     useEffect(() => {
@@ -17,10 +18,12 @@ export default function RecipeList() {
                 try {
                     let response;
                     console.log(searchQuery)
-                    if (searchQuery) {
-                        response = await getRecipes(`search?q=${encodeURIComponent(queryParams || "")}`)
+                    if (queryParams) {
+                      response = await getRecipes(`search?q=${encodeURIComponent(queryParams)}`);
+                    } else if (tagParams) {
+                      response = await getRecipes(`tag/${tagParams}`);
                     } else {
-                        response = await getRecipes("")
+                      response = await getRecipes("");
                     }
                     const data = await response?.json()
                     setRecipes(data.recipes)
@@ -32,7 +35,7 @@ export default function RecipeList() {
             fetchAllRecipes()
         }, 500);
 
-        return () => clearTimeout(debounce)
+        return () => {clearTimeout(debounce);}
     }, [searchQuery])
 
   return (
@@ -42,7 +45,7 @@ export default function RecipeList() {
         setSearchQuery={setSearchQuery}
       ></Header>
       <main className="pt-[9rem] -z-50">
-        <ListComponent recipes={recipes}></ListComponent>
+        <ListComponent recipes={recipes} setSearchQuery={setSearchQuery} tagParams={tagParams || ""}></ListComponent>
       </main>
     </>
   );
