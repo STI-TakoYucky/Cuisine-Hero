@@ -5,8 +5,8 @@ import { RiRobot2Line } from "react-icons/ri";
 import { useEffect, useRef, useState } from "react";
 import { animate, createScope } from 'animejs';
 import { useNavigate } from "react-router";
-import plate1 from "@/assets/images/Plate1.png";
-import plate2 from "@/assets/images/Plate2.png";
+import plate2 from "@/assets/images/Plate1.png";
+import plate1 from "@/assets/images/Plate2.png";
 
 export default function HeroSection() {
 
@@ -22,33 +22,27 @@ export default function HeroSection() {
     //plate animation
     scope.current = createScope({ root }).add(() => {
       animate('.plate-1', {
-        scale: [
-          { to: .7, ease: 'inOut(3)', duration: 200 },
-          { to: 1, ease:'inOut(3)' }
-        ],
+        scale: [0,1],
         rotate: 360,
         ease: 'out(4)',
-        duration: 2500,
+        duration: 1500,
       })
 
       animate('.plate-2', {
-        scale: [
-          { to: .1, ease: 'inOut(3)', duration: 200 },
-          { to: 1, ease:'inOut(3)' }
-        ],
+        scale: [0,1],
         rotate: 360,
         ease: 'out(4)',
-        duration: 2500,
+        duration: 1500,
+        delay: 200
       })
 
-      animate('.fade-in', {
-        opacity: [
-          { to: 0, ease: 'inOut(3)', duration: 200 },
-          { to: 1, ease:'inOut(3)' }
-        ],
-        ease: 'out(4)',
-        duration: 2500,
-      })
+       animate(".fade-in", {
+        opacity: [0, 1],
+        translateY: [-20, 0],
+        easing: "easeOutQuad",
+        duration: 1000,
+        delay: 300,
+      });
     })
 
     return () => scope.current.revert()
@@ -62,15 +56,16 @@ export default function HeroSection() {
 
   return (
     <section className="fixed -top-[0rem] w-full -z-10" ref={root}>
+
       <div className="absolute inset-0 -z-50">
           <div className="w-full h-[15rem] bg-gradient-to-b blur-md from-primary-100 to-white"></div>
       </div>
 
       <div className="flex flex-col items-center justify-center h-screen">
-      <img src={plate2} className="absolute -top-[52rem]  plate-1"></img>
+      <img src={plate1} className="absolute -top-[52rem] min-w-[64rem] plate-1"></img>
 
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="fade-in !font-header-font font-semibold tracking-header uppercase text-[3rem] z-50">
+      <div className="flex flex-col items-center justify-center opacity-">
+        <h1 className="fade-in !font-header-font font-semibold tracking-header uppercase text-[clamp(1.5rem,5vw,3rem)] z-50">
           CUISINE HERO
         </h1>
         <p className="text-[1rem] tracking-[.1rem] !text-secondary-300 fade-in">
@@ -81,7 +76,7 @@ export default function HeroSection() {
       <div className="relative flex flex-col justify-start opacity-0 fade-in mt-15">
         <div className="flex items-center">
             <IoSearch className="absolute text-2xl left-4 text-dark"></IoSearch>
-            <Input onKeyDown={handleKeyDown} value={value} onChange={(e) => setValue(e.target.value)} type="search" placeholder="Search" className="pl-12 w-[50rem] text-base border-[2px] border-dark  py-5 text-dark rounded-full"/>
+            <Input onKeyDown={handleKeyDown} value={value} onChange={(e) => setValue(e.target.value)} type="search" placeholder="Search" className="pl-12 max-w-[50rem] w-[80vw] text-base border-[2px] border-dark  py-5 text-dark rounded-full"/>
         </div>
             
         <div className="flex gap-2 mt-6">
@@ -90,7 +85,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <img src={plate1} className="plate-2 absolute -bottom-[20rem] -z-20"></img>
+      <img src={plate2} className="plate-2 absolute -bottom-[20rem] min-w-[35rem] -z-20 scale-[.7]"></img>
       </div>
     </section>
   )
