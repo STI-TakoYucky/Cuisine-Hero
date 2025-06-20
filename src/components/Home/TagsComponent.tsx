@@ -43,12 +43,12 @@ export default function TagsComponent() {
                 key={index}
                 className={`transition-all duration-200 ease-in-out ${
                   index !== 0 ? "pl-5" : ""
-                } shrink-0 basis-[17rem] bg-none`}
+                } shrink-0 basis-[15rem] lg:basis-[19rem] bg-none`}
                  onClick={() => handleTagClick(tag.name)}
               >
-                <div className="w-[13.625rem] tag-hover transition-all duration-200 h-[13.625rem] flex flex-col hover:translate-y-3 cursor-pointer justify-center items-center rounded-full hover:bg-white bg-secondary-200 shadow-md">
-                  <Icon className="tag-icon text-[5rem] mb-2 text-white transition-all duration-200" />
-                  <p className="!font-medium tag-header !text-[1.5rem] !font-header-font transition-all duration-200">
+                <div className="w-[50vw] h-[50vw] max-w-[13.625rem] tag-hover transition-all duration-200 max-h-[13.625rem] flex flex-col hover:translate-y-3 cursor-pointer justify-center items-center rounded-full hover:bg-white bg-secondary-200 shadow-md">
+                  <Icon className="tag-icon text-[clamp(4rem,6vw,5rem)] mb-2 text-white transition-all duration-200" />
+                  <p className="!font-medium tag-header hidden md:block !text-[clamp(1rem,3vw,1.5rem)] !font-header-font transition-all duration-200">
                     {tag.name}
                   </p>
                 </div>

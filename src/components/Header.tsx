@@ -42,35 +42,39 @@ export default function Header({ queryParams, setSearchQuery, recipeName }: Head
     }
 
   return (
-    <header className="fixed flex flex-col w-full px-[7.5rem] py-[2.313rem] z-50 bg-white">
-        <div className='mb-5'>
+    <header className="fixed flex flex-col w-full global-responsive-margin py-[2.313rem] z-50 bg-white">
+        <div className='sm:mb-5'>
             <div className="absolute inset-0 -z-50">
                 <div className="w-full h-full bg-gradient-to-b blur-md from-primary-100 to-white"></div>
             </div>
 
-            <div className="flex z-40">
+            <div className="flex z-40 items-center justify-between">
                 <Link to={"/"}>
-                <h1 className="!font-header-font text-[1.5rem] font-semibold uppercase tracking-header text-dark cursor-pointer">
+                <h1 className="!font-header-font text-[clamp(1rem,5vw,1.5rem)] font-semibold uppercase tracking-header text-dark cursor-pointer">
                     Cuisine Hero
                 </h1>
                 </Link>
-                <div className="relative ml-8">
-                <div className="flex items-center">
-                    <IoSearch className="absolute text-2xl left-4 text-dark"></IoSearch>
-                    <Input
-                    value={queryParams}
-                    onKeyDown={handleKeyDown}
-                    onChange={(e) => {updateQuery(e.target.value); setSearchValue(e.target.value)}}
-                    type="search"
-                    placeholder="Search"
-                    className="pl-12 w-[21.938rem] h-[2.188rem] text-base border-none outline-none py-5 bg-white text-dark rounded-full"
-                    />
+
+                <div className="relative ml-8 sm:block hidden">
+                    <div className="flex items-center w-full">
+                        <IoSearch className="absolute text-2xl left-4 text-dark"></IoSearch>
+                        <Input
+                        value={queryParams}
+                        onKeyDown={handleKeyDown}
+                        onChange={(e) => {updateQuery(e.target.value); setSearchValue(e.target.value)}}
+                        type="search"
+                        placeholder="Search"
+                        className="pl-12 w-[30vw] max-w-[21.938rem] min-w-[14.938rem] h-[2.188rem] text-base border-none outline-none py-5 bg-white text-dark rounded-full"
+                        />
+                    </div>
                 </div>
+                <div className='sm:hidden block'>
+                    <IoSearch className="text-2xl text-dark"></IoSearch>
                 </div>
             </div>
         </div>
 
-        <nav>
+        <nav className='hidden sm:block'>
         <Breadcrumb>
             <BreadcrumbList>
                 <BreadcrumbItem>

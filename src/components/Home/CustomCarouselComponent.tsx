@@ -25,11 +25,11 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
         {recipes.map((recipe:any, index: number) => 
             {
             return (
-<CarouselItem
-  id={recipe.id}
-  key={index}
-  className="pl-5 shrink-0 basis-[20rem]"
->
+            <CarouselItem
+              id={recipe.id}
+              key={index}
+              className="pl-5 shrink-0 basis-[20rem]"
+            >
             <RecipeCardComponent recipe={recipe}/>
             </CarouselItem>
            )})}
