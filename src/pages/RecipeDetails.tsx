@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom'
 
 function AsideSkeleton() {
   return (
-    <div className='sticky w-[22rem] ml-[7.5rem] mr-[3rem] h-[90%] overflow-y-auto bg-slate-200 rounded-md'></div>
+    <div className='sticky w-[22rem] mr-[3rem] h-[100%] overflow-y-auto bg-slate-200 rounded-md'></div>
   )
 }
 
@@ -51,12 +51,13 @@ export default function RecipeDetails() {
   return (
     <>
       <Header recipeName={recipe.name}></Header>
-      <div className="flex pt-[9.9rem] h-screen overflow-hidden">
+      <div className="flex sm:pt-[11rem] global-responsive-margin items-center flex-col lg:flex-row lg:h-screen lg:overflow-hidden">
 
         {loading ? (
           <AsideSkeleton></AsideSkeleton>
         ) : (
-          <aside className="sticky w-[22rem] ml-[7.5rem] mr-[3rem] h-full overflow-y-auto">
+          <aside className="relative w-full lg:w-[22rem] mb-10 lg:sticky lg:mr-[3rem] h-full overflow-y-auto scrollbar-hidden">
+
             <div className="overflow-hidden">
               <img
                 src={recipe.image}
@@ -80,13 +81,13 @@ export default function RecipeDetails() {
           </aside>
         )}
 
-        <main className="flex-1 pr-10 h-screen pb-10 overflow-y-auto scrollbar-hidden">
+        <main className="w-full flex-1 mt-[5rem] lg:mt-[10rem] overflow-y-auto pb-10 lg:h-screen scrollbar-hidden">
           {loading ? (
             <MainSkeleton></MainSkeleton>
           ) : (
             <>
               <section className="flex flex-col">
-                <h1 className="!font-header-font font-medium tracking-header text-[2.5rem]">
+                <h1 className="!font-header-font header-responsive font-medium tracking-header text-[2.5rem]">
                   {recipe.name}
                 </h1>
 
@@ -133,7 +134,7 @@ export default function RecipeDetails() {
               </section>
 
               <section className="flex gap-5 flex-col mt-5">
-                <h2 className="text-[2.5rem] font-medium !font-header-font">
+                <h2 className="header-responsive font-medium !font-header-font">
                   Instructions
                 </h2>
                 {recipe.instructions?.map((step: string, index: number) => {

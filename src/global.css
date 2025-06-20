@@ -55,6 +55,13 @@ p {
   display: none; /* Chrome, Safari, Opera */
 }
 
+.header-responsive {
+  font-size: clamp(1.5rem /* 24px */, 5vw, 3rem /* 48px */);
+}
+
+.global-responsive-margin {
+  @apply px-[.5rem] md:px-[3rem] lg:px-[7.5rem]
+}
 
 /* MEDIA QUERIES */
 

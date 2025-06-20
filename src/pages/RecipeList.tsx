@@ -12,7 +12,7 @@ export default function RecipeList() {
     const [recipes, setRecipes] = useState<any>([])
 
     useEffect(() => {
-
+        window.scrollTo(0, 0)
         const debounce = setTimeout(() => {
             const fetchAllRecipes = async () => {
                 try {
