@@ -29,7 +29,7 @@ export default function MealsComponent({ headerName, recipeTags}: {headerName: s
   }, []);
   
   return (
-    <div className='w-full py-[8rem]'>
+    <div className='w-full pb-[5rem]'>
         <div className='flex items-baseline justify-between'>
           <h1 className='tracking-header text-[clamp(1.5rem,5vw,2.5rem)] font-medium !font-header-font text-dark'>{headerName}</h1>
           <Link to={`/recipes${headerName != "RECIPES" ? "?tag=" + headerName.toLowerCase(): ""}`}>

@@ -44,7 +44,7 @@ export default function RecipeList() {
         queryParams={queryParams || ""}
         setSearchQuery={setSearchQuery}
       ></Header>
-      <main className="pt-[9rem] -z-50">
+      <main className="pt-[4rem] sm:pt-[9rem] -z-50">
         <ListComponent recipes={recipes} setSearchQuery={setSearchQuery} tagParams={tagParams || ""}></ListComponent>
       </main>
     </>

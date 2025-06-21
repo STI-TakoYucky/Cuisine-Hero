@@ -13,9 +13,9 @@ type HeaderProps = {
 
 export default function RecipeList({ recipes, setSearchQuery, tagParams }: HeaderProps) {
   return (
-    <div className='flex flex-col w-full global-responsive-margin py-[2.313rem]'>
+    <div className='flex flex-col justify-center w-full global-responsive-margin py-[2.313rem]'>
       <TagComboBox setSearchQuery={setSearchQuery} tagParams={tagParams}></TagComboBox>
-      <div className='flex flex-wrap gap-5 w-full'>
+      <div className='flex flex-wrap items-center gap-5 w-full'>
         {
           recipes.map((recipe: any, index: number) => 
             <div key={index}>
