@@ -81,7 +81,7 @@ export default function RecipeDetails() {
           </aside>
         )}
 
-        <main className="w-full flex-1 mt-[5rem] lg:mt-[10rem] overflow-y-auto pb-10 lg:h-screen scrollbar-hidden">
+        <main className="w-full flex-1 lg:mt-[10rem] overflow-y-auto pb-10 lg:h-screen scrollbar-hidden">
           {loading ? (
             <MainSkeleton></MainSkeleton>
           ) : (

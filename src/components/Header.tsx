@@ -18,11 +18,13 @@ type HeaderProps = {
 export default function Header({ queryParams, setSearchQuery, recipeName }: HeaderProps) {
 
     const [searchValue, setSearchValue] = useState<string>()
+
+    //mobile search input
+    const [isSearchVisible, setSearchVisible] = useState(false)
     const location = useLocation()
     let pathNameArray = location.pathname.split("/")
     pathNameArray = pathNameArray.filter(item => item != "")
     const navigate = useNavigate()
-    console.log(pathNameArray)
 
     const updateQuery = (value: string) => {
         if (setSearchQuery && location.pathname == "/recipes") {
@@ -42,8 +44,8 @@ export default function Header({ queryParams, setSearchQuery, recipeName }: Head
     }
 
   return (
-    <header className="fixed flex flex-col w-full global-responsive-margin py-[2.313rem] z-50 bg-white">
-        <div className='sm:mb-5'>
+    <header className="fixed flex flex-col w-full global-responsive-margin py-[1rem] sm:py-[2.313rem] z-50 bg-white">
+        <div className='sm:mb-5 relative w-full'>
             <div className="absolute inset-0 -z-50">
                 <div className="w-full h-full bg-gradient-to-b blur-md from-primary-100 to-white"></div>
             </div>
@@ -68,9 +70,22 @@ export default function Header({ queryParams, setSearchQuery, recipeName }: Head
                         />
                     </div>
                 </div>
-                <div className='sm:hidden block'>
+                <div className='sm:hidden relative block cursor-pointer' onClick={() => setSearchVisible(prev => !prev)}>
                     <IoSearch className="text-2xl text-dark"></IoSearch>
                 </div>
+                
+                    { isSearchVisible &&
+                        <div className='absolute sm:hidden block'>
+                            <Input
+                            value={queryParams}
+                            onKeyDown={handleKeyDown}
+                            onChange={(e) => {updateQuery(e.target.value); setSearchValue(e.target.value)}}
+                            type="search"
+                            placeholder="Search"
+                            className="pl-8 w-[75vw] h-[2.188rem] text-base border-none outline-none py-5 bg-white text-dark rounded-full"
+                            />
+                        </div>
+                    }
             </div>
         </div>
 

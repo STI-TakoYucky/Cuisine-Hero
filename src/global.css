@@ -60,7 +60,7 @@ p {
 }
 
 .global-responsive-margin {
-  @apply px-[.5rem] md:px-[3rem] lg:px-[7.5rem]
+  @apply px-[1rem] md:px-[3rem] lg:px-[7.5rem]
 }
 
 /* MEDIA QUERIES */

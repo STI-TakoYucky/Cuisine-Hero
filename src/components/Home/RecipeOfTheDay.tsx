@@ -25,7 +25,7 @@ export default function randRecipeOfTheDay() {
     <div className="w-full pb-10" onClick={() => {navigate(`/recipes/${randRecipe.id}`)}}>
       <div className="flex items-baseline justify-between">
         <h1 className="tracking-header text-[clamp(1.5rem,5vw,2.5rem)] font-medium !font-header-font text-dark">
-          RECIPE OF THE DAY!
+          RECIPE OF THE DAY
         </h1>
       </div>
 

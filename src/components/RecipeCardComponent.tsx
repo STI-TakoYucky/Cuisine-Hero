@@ -6,11 +6,21 @@ export default function RecipeCardComponent({ recipe }: {recipe: any}) {
   let navigate = useNavigate();
 
   return (
-    <div onClick={() => {navigate(`/recipes/${recipe.id}`)}} className="max-w-[19rem] w-[19rem] h-[28rem] rounded-md mb-2 bg-white shadow-md flex flex-col overflow-hidden carousel-item hover:bg-slate-100 hover:translate-y-3 cursor-pointer transition-all duration-200 ease-in-out hover:shadow-none">
-        <div className="overflow-hidden">
+    <div onClick={() => {navigate(`/recipes/${recipe.id}`)}} className="max-w-[19rem] w-[19rem] h-[27rem] rounded-md mb-2 bg-white shadow-md flex flex-col overflow-hidden carousel-item hover:bg-slate-100 hover:translate-y-3 cursor-pointer transition-all duration-200 ease-in-out hover:shadow-none">
+        <div className="overflow-hidden relative">
+          <div className="flex absolute top-5 left-5 z-10">
+            <p
+              className={`!text-[0.875rem] px-3 py-[.2rem] rounded-full inline-block w-fit ${getDifficultyColor(
+                recipe.difficulty
+              )}`}
+            >
+              {recipe.difficulty}
+            </p>
+          </div>
+
           <img
             src={recipe.image}
-            className="carousel-image w-full rounded-t-md aspect-square max-h-[14rem] object-cover"
+            className="brightness-[.9] carousel-image w-full rounded-t-md aspect-square max-h-[14rem] object-cover"
             alt={recipe.name}
           />
         </div>
@@ -41,16 +51,6 @@ export default function RecipeCardComponent({ recipe }: {recipe: any}) {
                     : recipe.servings + " serving"}
                 </p>
               </span>
-            </div>
-
-            <div className="flex">
-              <p
-                className={`!text-[0.875rem] px-3 py-[.2rem] rounded-full inline-block w-fit ${getDifficultyColor(
-                  recipe.difficulty
-                )}`}
-              >
-                {recipe.difficulty}
-              </p>
             </div>
           </div>
 

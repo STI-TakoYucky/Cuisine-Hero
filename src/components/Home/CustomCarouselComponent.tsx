@@ -17,7 +17,7 @@ export default function CustomCarouselComponent( { recipes }: CustomCarouselComp
         loop: true,
         containScroll: false,
         dragFree: true,
-        watchDrag: recipes != null && recipes.length > 5
+        watchDrag: true
         }}
         className="w-full mt-5 select-none"
         >
