@@ -1,10 +1,12 @@
 import { getSingleRandomRecipe } from "@/api/getSingleRandomRecipe";
+import { generateDescription } from "@/api/recipeDescriptionGenerator";
 import { useEffect, useState } from "react";
 import { FaBowlFood, FaRegClock } from "react-icons/fa6";
 import { useNavigate } from "react-router";
 
 export default function randRecipeOfTheDay() {
   const [randRecipe, setrandRecipe] = useState<any>({});
+  const [generatedDesc, setGeneratedDesc] = useState<string>("Loading")
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -13,6 +15,9 @@ export default function randRecipeOfTheDay() {
         const response = await getSingleRandomRecipe();
         const data = (await response?.json());
         setrandRecipe(data || {});
+
+        const generatedResponse = await generateDescription()
+        setGeneratedDesc(generatedResponse)
       } catch (error) {
         console.error(error);
       }
@@ -62,6 +67,12 @@ export default function randRecipeOfTheDay() {
                     </p>
                   </span>
                 </div>
+              </div>
+
+              <div>
+                <p>
+                  {generatedDesc}
+                </p>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-4">
