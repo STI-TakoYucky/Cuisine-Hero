@@ -1,4 +1,4 @@
-export const generateDescription = async () => {
+export const generateDescription = async (name: string) => {
   const response = await fetch(
     "https://openrouter.ai/api/v1/chat/completions",
     {
@@ -13,7 +13,7 @@ export const generateDescription = async () => {
           {
             role: "user",
             content:
-              "Generate a short description of this recipe: Spaghetti with tomato sauce and basil.",
+              `Generate a short description of ${name}. Only generate the description with no title`,
           },
         ],
       }),
@@ -21,5 +21,5 @@ export const generateDescription = async () => {
   );
 
   const result = await response.json();
-  return result.choices?.[0]?.message?.content || "No response.";
+  return result.choices?.[0]?.message?.content || `The classic ${name}`;
 };

@@ -1,23 +1,29 @@
 import { getSingleRandomRecipe } from "@/api/getSingleRandomRecipe";
 import { generateDescription } from "@/api/recipeDescriptionGenerator";
+import { getDifficultyColor } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { FaBowlFood, FaRegClock } from "react-icons/fa6";
 import { useNavigate } from "react-router";
 
 export default function randRecipeOfTheDay() {
   const [randRecipe, setrandRecipe] = useState<any>({});
-  const [generatedDesc, setGeneratedDesc] = useState<string>("Loading")
-  const navigate = useNavigate()
+  const [generatedDesc, setGeneratedDesc] = useState<string>("Loading");
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchrandRecipe = async () => {
       try {
         const response = await getSingleRandomRecipe();
-        const data = (await response?.json());
+        const data = await response?.json();
         setrandRecipe(data || {});
 
-        const generatedResponse = await generateDescription()
-        setGeneratedDesc(generatedResponse)
+        const generatedResponse = await generateDescription(data.name);
+        setGeneratedDesc(generatedResponse);
+
+        if (data && generatedResponse) {
+          setLoading(false);
+        }
       } catch (error) {
         console.error(error);
       }
@@ -27,15 +33,36 @@ export default function randRecipeOfTheDay() {
   }, []);
 
   return (
-    <div className="w-full pb-10" onClick={() => {navigate(`/recipes/${randRecipe.id}`)}}>
-      <div className="flex items-baseline justify-between">
-        <h1 className="tracking-header text-[clamp(1.5rem,5vw,2.5rem)] font-medium !font-header-font text-dark">
-          RECIPE OF THE DAY
-        </h1>
-      </div>
-
-          <div id={randRecipe.id} className="w-full h-[28rem] mt-7 rounded-md bg-white shadow-md flex flex-col md:flex-row overflow-hidden carousel-item hover:bg-slate-100 hover:translate-y-3 cursor-pointer transition-all duration-200 ease-in-out hover:shadow-none">
+    <>
+        <div
+          className="w-full pb-10"
+          onClick={() => {
+            navigate(`/recipes/${randRecipe.id}`);
+          }}
+        >
+          <div className="flex items-baseline justify-between">
+            <h1 className="tracking-header text-[clamp(1.5rem,5vw,2.5rem)] font-medium !font-header-font text-dark">
+              RECIPE OF THE DAY
+            </h1>
+          </div>
+      {loading ? (
+        <div className="w-full h-[28rem] mt-7 rounded-md bg-slate-100"></div>
+      ) : (
+          <div
+            id={randRecipe.id}
+            className="w-full relative h-[28rem] mt-7 rounded-md bg-white shadow-md flex flex-col md:flex-row overflow-hidden carousel-item hover:bg-slate-100 hover:translate-y-3 cursor-pointer transition-all duration-200 ease-in-out hover:shadow-none"
+          >
             <div className="overflow-hidden">
+              <div className="flex absolute top-5 left-5 z-50">
+                <p
+                  className={`!text-[0.875rem] px-3 py-[.2rem] rounded-full inline-block w-fit ${getDifficultyColor(
+                    randRecipe.difficulty
+                  )}`}
+                >
+                  {randRecipe.difficulty}
+                </p>
+              </div>
+
               <img
                 src={randRecipe.image}
                 className="carousel-image w-full aspect-square max-h-[100%] object-cover"
@@ -45,7 +72,9 @@ export default function randRecipeOfTheDay() {
 
             <div className="flex flex-col justify-between flex-1 p-5 ">
               <div className="flex flex-col gap-2">
-                <h1 className="!text-[clamp(1.5rem,5vw,2.5rem)] !font-medium ">{randRecipe.name}</h1>
+                <h1 className="!text-[clamp(1.5rem,5vw,2.5rem)] !font-medium ">
+                  {randRecipe.name}
+                </h1>
 
                 <div className="flex items-center w-full gap-5">
                   {randRecipe.cookTimeMinutes !== 0 &&
@@ -53,7 +82,8 @@ export default function randRecipeOfTheDay() {
                       <span className="flex items-center gap-2">
                         <FaRegClock className="text-[1.6rem] text-secondary-200" />
                         <p className="!text-[0.875rem]">
-                          {randRecipe.cookTimeMinutes + randRecipe.prepTimeMinutes}{" "}
+                          {randRecipe.cookTimeMinutes +
+                            randRecipe.prepTimeMinutes}{" "}
                           mins
                         </p>
                       </span>
@@ -67,12 +97,10 @@ export default function randRecipeOfTheDay() {
                     </p>
                   </span>
                 </div>
-              </div>
 
-              <div>
-                <p>
-                  {generatedDesc}
-                </p>
+                <div className="md:block hidden">
+                  <p className="mt-5">{generatedDesc}</p>
+                </div>
               </div>
 
               <div className="flex flex-wrap gap-2 mt-4">
@@ -86,8 +114,9 @@ export default function randRecipeOfTheDay() {
                 ))}
               </div>
             </div>
-          </div>
+          </div>)}
+        </div>
 
-    </div>
+    </>
   );
 }
