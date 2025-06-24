@@ -31,7 +31,7 @@ export default function RecipeList({ recipes, setSearchQuery, tagParams }: Heade
 
       <div className="flex flex-wrap items-center gap-5 w-full min-h-[12rem]">
         {loading ? (
-          <div className='flex w-full justify-center items-center bg-red-300'>
+          <div className='flex w-full justify-center items-center'>
             <div className="w-10 h-10 border-4 border-primary-100 border-t-transparent rounded-full animate-spin relative top-1/2" />
           </div>
         ) : recipes.length > 0 ? (
