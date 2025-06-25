@@ -1,5 +1,5 @@
 import { getSingleRandomRecipe } from "@/api/getSingleRandomRecipe";
-import { generateDescription } from "@/api/recipeDescriptionGenerator";
+import { generateDescription } from "@/api/AIPrompts";
 import { getDifficultyColor } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { FaBowlFood, FaRegClock } from "react-icons/fa6";

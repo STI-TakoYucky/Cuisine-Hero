@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
 import RecipeList from "./pages/RecipeList"
 import RecipeDetails from "./pages/RecipeDetails"
+import AIChatBot from "./pages/AIChatBot"
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home />}></Route>
       <Route path='/recipes' element={<RecipeList/>}></Route>
+      <Route path='/ai-chat' element={<AIChatBot></AIChatBot>}></Route>
       <Route path='/recipes/:recipeId' element={<RecipeDetails/>}></Route>
     </Routes>
   )
