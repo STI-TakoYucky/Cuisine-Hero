@@ -2,7 +2,6 @@ import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import {
   MessageList,
   Message,
-  MessageInput,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 import Header from "@/components/Header";
@@ -23,13 +22,13 @@ export default function AIChatBot() {
     },
   ]);
 
-    const [searchQuery, setSearchQuery] = useSearchParams()
+    const [searchQuery] = useSearchParams()
     const queryParams = searchQuery.get("q");
     
     useEffect(() => {
         const sendMessagePrompt = async () => {
             if(!queryParams) return 
-            
+
             setMessages((prev) => [
                 ...prev,
                 {

@@ -11,7 +11,6 @@ import plate1 from "@/assets/images/Plate2.png";
 export default function HeroSection() {
 
   const [searchToggleType, setSearchToggleType] = useState("Search")
-  const [tooltip, setTooltip] = useState(false)
   const root = useRef<any>(null)
   const scope = useRef<any>(null)
 
@@ -59,13 +58,13 @@ export default function HeroSection() {
       }
     };
 
-    const showAITooltip = () => {
-      setTooltip(true)
+    // const showAITooltip = () => {
+    //   setTooltip(true)
 
-      setTimeout(() => {
-        setTooltip(false)
-      }, 2000)
-    }
+    //   setTimeout(() => {
+    //     setTooltip(false)
+    //   }, 2000)
+    // }
 
   return (
     <section className="fixed -top-[0rem] w-full -z-10" ref={root}>
@@ -96,11 +95,11 @@ export default function HeroSection() {
           <Button onClick={() => {setSearchToggleType("Search")}} className={`rounded-full text-dark ${searchToggleType == "Search" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><IoSearch className="text-dark" /> Search</Button>
           <div className="flex flex-col">  
           <Button onClick={() => {setSearchToggleType("AI")}} className={`rounded-full text-dark ${searchToggleType == "AI" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><RiRobot2Line className="text-dark" /> AI</Button>
-            { tooltip &&
+            {/* { tooltip &&
               <div className="relative flex justify-center top-[-2rem]">
               <div className="absolute top-[2.8rem] border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-solid border-b-secondary-200 border-b-[1.3rem]"></div>
-              {/* <p className="absolute !text-sm bg-secondary-200 rounded-full top-[4REM] w-[9rem] text-center p-[.4rem]">Coming Soon!</p> */}
-            </div>}
+              <p className="absolute !text-sm bg-secondary-200 rounded-full top-[4REM] w-[9rem] text-center p-[.4rem]">Coming Soon!</p>
+            </div>} */}
           </div>
         </div>
       </div>
