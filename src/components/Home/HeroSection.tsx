@@ -50,8 +50,12 @@ export default function HeroSection() {
   }, [])
 
    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === "Enter") {
+    if(!value) return
+
+      if (e.key === "Enter" && searchToggleType == "Search") {
         navigate(`/recipes?q=${encodeURIComponent(value)}`);
+      } else if (e.key === "Enter" && searchToggleType == "AI") {
+        navigate(`/ai-chat?q=${encodeURIComponent(value)}`);
       }
     };
 
@@ -85,17 +89,17 @@ export default function HeroSection() {
       <div className="relative flex flex-col justify-start opacity-0 fade-in mt-15">
         <div className="flex items-center">
             <IoSearch className="absolute text-2xl left-4 text-dark"></IoSearch>
-            <Input onKeyDown={handleKeyDown} value={value} onChange={(e) => setValue(e.target.value)} type="search" placeholder="Search" className="pl-12 max-w-[50rem] w-[80vw] text-base border-[2px] border-dark  py-5 text-dark rounded-full"/>
+            <Input onKeyDown={handleKeyDown} value={value} onChange={(e) => setValue(e.target.value)} type="search" placeholder={searchToggleType == "Search" ? "Search": "Type in a prompt..."} className="pl-12 max-w-[50rem] w-[80vw] text-base border-[2px] border-dark  py-5 text-dark rounded-full"/>
         </div>
             
         <div className="flex gap-2 mt-6 items-center">
           <Button onClick={() => {setSearchToggleType("Search")}} className={`rounded-full text-dark ${searchToggleType == "Search" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><IoSearch className="text-dark" /> Search</Button>
           <div className="flex flex-col">  
-          <Button onClick={showAITooltip} className={`rounded-full text-dark ${searchToggleType == "AI" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><RiRobot2Line className="text-dark" /> AI</Button>
+          <Button onClick={() => {setSearchToggleType("AI")}} className={`rounded-full text-dark ${searchToggleType == "AI" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><RiRobot2Line className="text-dark" /> AI</Button>
             { tooltip &&
               <div className="relative flex justify-center top-[-2rem]">
               <div className="absolute top-[2.8rem] border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-solid border-b-secondary-200 border-b-[1.3rem]"></div>
-              <p className="absolute !text-sm bg-secondary-200 rounded-full top-[4REM] w-[9rem] text-center p-[.4rem]">Coming Soon!</p>
+              {/* <p className="absolute !text-sm bg-secondary-200 rounded-full top-[4REM] w-[9rem] text-center p-[.4rem]">Coming Soon!</p> */}
             </div>}
           </div>
         </div>
