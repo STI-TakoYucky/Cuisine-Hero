@@ -1,54 +1,88 @@
-# React + TypeScript + Vite
+# Cuisine Hero 🍴
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cuisine Hero is a website that provides recipes on different dishes for home cooks, chefs, food enthusiasts, and people alike.
 
-Currently, two official plugins are available:
+<a href="https://cuisine-hero.vercel.app/"><img src="https://img.shields.io/badge/Live_Demo-blue?style=for-the-badge" alt="Portfolio Badge" /></a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# Features ⚙️ 
+- **Recipe List**
+  - Tags
+  - Recipe difficulty
+  - Total time to cook and prep
+  - Servings
+- **Recipe details**
+  - Instructions
+  - Ingredients
+- **AI Chatbot integration**
+  - An AI Chatbot programmed specifically to answer food related questions
+- **Sort recipes by categories**
+- **Search recipes**
+- **Recipe of the Day**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+<br>
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+# Screenshots 📷
+![alt text](image-1.png)
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-7.png)
+![alt text](image-8.png)
+![alt text](image-9.png)
+
+<br>
+
+# Tools and Technologies 💻
+### Tech stack
+[![Tech Stack](https://skillicons.dev/icons?i=ts,nodejs,express,react)](https://skillicons.dev)
+### Tools
+[![Tech Stack](https://skillicons.dev/icons?i=vscode,postman,figma,vercel)](https://skillicons.dev)
+### API
+<img src="https://img.shields.io/badge/API_from_dummyJSON-blue?style=for-the-badge" alt="Portfolio Badge" /></a>
+
+<br>
+
+# Getting Started 🚀
+
+### Prerequisites
+- Node.js installed
+- npm or yarn
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/STI-TakoYucky/Cuisine-Hero.git
+cd cuisine-hero
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+<br>
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+# Areas For Improvement 🔧
+- **Recipe list layout fixes (Mobile and Desktop)**
+- **Font size fixes**
+- **Limited recipes**
+- **Limited AI API request**
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+<br>
+
+# Future Features 👨‍🏭
+- **Custom API for Recipes**
+- **Accounts to upload and save recipes**
+
+<br>
+
+# Author 👨‍💼
+**Email**: estrada.lnp@gmail.com
+
+**Github**: https://github.com/STI-TakoYucky
+
+**Web Portfolio**: https://lucky-estrada.vercel.app/
+
