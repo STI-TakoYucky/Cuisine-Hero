@@ -81,13 +81,13 @@ export default function RecipeDetails() {
           </aside>
         )}
 
-        <main className="w-full flex-1 lg:mt-[7rem] overflow-y-auto pb-10 lg:h-screen scrollbar-hidden">
+        <main className="w-full flex-1 lg:mt-[8rem] overflow-y-auto pb-10 lg:h-screen scrollbar-hidden">
           {loading ? (
             <MainSkeleton></MainSkeleton>
           ) : (
             <>
               <section className="flex flex-col">
-                <h1 className="!font-header-font md:mb-[0rem] mb-[1rem] header-responsive font-medium uppercase tracking-header text-[2.5rem]">
+                <h1 className="!font-header-font md:mb-[0rem] mb-[1rem] text-[clamp(1.5rem,5vw,2rem)] font-medium uppercase tracking-header">
                   {recipe.name}
                 </h1>
 
@@ -134,7 +134,7 @@ export default function RecipeDetails() {
               </section>
 
               <section className="flex gap-5 flex-col mt-[3rem]">
-                <h2 className="header-responsive font-medium tracking-header uppercase !font-header-font">
+                <h2 className="text-[clamp(1.5rem,5vw,2rem)] font-medium tracking-header uppercase !font-header-font">
                   Instructions
                 </h2>
                 {recipe.instructions?.map((step: string, index: number) => {
