@@ -20,18 +20,16 @@ Cuisine Hero is a website that provides recipes on different dishes for home coo
 - **Search recipes**
 - **Recipe of the Day**
 
-<br>
 
 # Screenshots 📷
-![alt text](image-1.png)
-![alt text](image-3.png)
-![alt text](image-4.png)
-![alt text](image-5.png)
-![alt text](image-7.png)
-![alt text](image-8.png)
-![alt text](image-9.png)
+![alt text](./project-screenshots/image-3.png)
+![alt text](./project-screenshots/image-1.png)
+![alt text](./project-screenshots/image-4.png)
+![alt text](./project-screenshots/image-5.png)
+![alt text](./project-screenshots/image-7.png)
+![alt text](./project-screenshots/image-8.png)
+![alt text](./project-screenshots/image-9.png)
 
-<br>
 
 # Tools and Technologies 💻
 ### Tech stack
@@ -41,7 +39,6 @@ Cuisine Hero is a website that provides recipes on different dishes for home coo
 ### API
 <img src="https://img.shields.io/badge/API_from_dummyJSON-blue?style=for-the-badge" alt="Portfolio Badge" /></a>
 
-<br>
 
 # Getting Started 🚀
 
@@ -63,7 +60,6 @@ npm install
 npm run dev
 ```
 
-<br>
 
 # Areas For Improvement 🔧
 - **Recipe list layout fixes (Mobile and Desktop)**
@@ -71,13 +67,10 @@ npm run dev
 - **Limited recipes**
 - **Limited AI API request**
 
-<br>
 
 # Future Features 👨‍🏭
 - **Custom API for Recipes**
 - **Accounts to upload and save recipes**
-
-<br>
 
 # Author 👨‍💼
 **Email**: estrada.lnp@gmail.com
