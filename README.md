@@ -63,6 +63,7 @@ npm run dev
 
 # Areas For Improvement 🔧
 - **Recipe list layout fixes (Mobile and Desktop)**
+- **Randomized Recipe Logic**
 - **Font size fixes**
 - **Limited recipes**
 - **Limited AI API request**
