@@ -50,7 +50,7 @@ export default function TagsComponent() {
                  onClick={() => handleTagClick(tag.name)}
               >
                 <div className="w-[15vw] h-[15vw] min-w-[6rem] min-h-[6rem] max-w-[13.625rem] tag-hover transition-all duration-200 max-h-[13.625rem] flex flex-col hover:translate-y-3 cursor-pointer justify-center items-center rounded-full hover:bg-white bg-secondary-200 shadow-md">
-                  <Icon className="tag-icon text-[clamp(4rem,6vw,5rem)] mb-2 text-white transition-all duration-200" />
+                  <Icon className="tag-icon text-[clamp(3rem,6vw,5rem)] mb-2 text-white transition-all duration-200" />
                   <p className="!font-medium tag-header hidden lg:block !text-[clamp(1rem,3vw,1.5rem)] !font-header-font transition-all duration-200">
                     {tag.name}
                   </p>

@@ -65,7 +65,7 @@ export default function randRecipeOfTheDay() {
 
               <img
                 src={randRecipe.image}
-                className="carousel-image w-full aspect-square max-h-[100%] object-cover"
+                className="carousel-image aspect-square max-h-[100%] md:min-h-[100%] w-full md:w-[35vw] object-cover"
                 alt=""
               />
             </div>
