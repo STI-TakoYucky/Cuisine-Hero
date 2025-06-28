@@ -39,7 +39,7 @@ export default function AIChatBot() {
             ])
             
             setTyping(true)
-            const response = await chatAI(singleMessage)
+            const response = await chatAI(singleMessage || queryParams)
 
         
             if (response != "No Message") {
@@ -66,7 +66,7 @@ export default function AIChatBot() {
         }
 
         sendMessagePrompt()
-    }, [queryParams])
+    }, [])
 
   const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
