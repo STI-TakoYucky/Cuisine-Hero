@@ -10,7 +10,7 @@ export const generateDescription = async (name: string): Promise<string> => {
       messages: [
         {
           role: "user",
-          content: `Write a short, tasty-sounding recipe description for "${name}". Do not include a title and don't make it too long, a maximum of 2 sentences`,
+          content: `Write a short, tasty-sounding recipe description for "${name}". Do not include a title and don't make it too long, no need to reply to me like "Here is your recipe...", a maximum of 2 sentences`,
         },
       ],
       temperature: 0.7,
@@ -39,7 +39,7 @@ export const chatAI = async (message: string) => {
       messages: [
         {
           role: "user",
-          content: `You are a recipe AI chat bot and the website is named CuisineHero. You are tasked to answer messages from users. If the user says anything unrelated to food, say that you can only help with food related prompts. The user says: ${message}`
+          content: `You are a recipe AI chat bot and the website is named Cuisine Hero. You are tasked to answer messages from users. If the user says anything unrelated to food, say that you can only help with food related prompts. The user says: ${message}`
         },
       ],
       temperature: 0.7,
