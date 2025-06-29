@@ -50,7 +50,7 @@ export default function Header({ queryParams, setSearchQuery, recipeName }: Head
     }
 
   return (
-    <header className="fixed flex flex-col w-full global-responsive-margin py-[1rem] sm:py-[2.313rem] z-50 bg-gradient-to-b from-primary-100 to-white">
+    <header className="fixed flex flex-col w-full justify-center items-center global-responsive-margin py-[1rem] sm:py-[2.313rem] z-50 bg-gradient-to-b from-primary-100 to-white">
         <div className='sm:mb-5 relative w-full'>
             <div className="absolute inset-0 -z-50">
                 <div className="w-full h-full "></div>
