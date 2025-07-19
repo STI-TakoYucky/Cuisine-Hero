@@ -113,10 +113,10 @@ export default function AIChatBot() {
   return (
     <main>
       <Header></Header>
-      <div className="w-full max-w-5xl h-screen mx-auto global-responsive-margin flex flex-col py-10">
+      <div className="w-full max-w-5xl h-screen mx-auto global-responsive-margin flex flex-col pt-[5rem] sm:pt-[8rem] pb-[1rem]">
         {/* Chat messages */}
-        <div className="flex-1 overflow-hidden mt-[6rem] ">
-          <MessageList>
+        <div className="flex-1 overflow-hidden">
+          <MessageList className="h-">
             {
                 messages.map((mess: MessageProps, index: number) => {
                     return (
@@ -144,7 +144,7 @@ export default function AIChatBot() {
 
         </div>
 
-        <div className="p-3">
+        <div className="px-3 py-5">
           <div className="flex gap-2 flex-col items-start">
             { isTyping && <TypingIndicator content="CuisineHeroAI is typing" />}
             <input
