@@ -92,9 +92,9 @@ export default function HeroSection() {
         </div>
             
         <div className="flex gap-2 mt-6 items-center">
-          <Button onClick={() => {setSearchToggleType("Search")}} className={`rounded-full text-dark ${searchToggleType == "Search" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><IoSearch className="text-dark" /> Search</Button>
+          <Button onClick={() => {setSearchToggleType("Search")}} className={`!font-semibold rounded-full text-dark ${searchToggleType == "Search" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><IoSearch className="text-dark" /> Search</Button>
           <div className="flex flex-col">  
-          <Button onClick={() => {setSearchToggleType("AI")}} className={`rounded-full text-dark ${searchToggleType == "AI" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><RiRobot2Line className="text-dark" /> AI</Button>
+          <Button onClick={() => {setSearchToggleType("AI")}} className={`!font-semibold rounded-full text-dark ${searchToggleType == "AI" && "!bg-secondary-200"} bg-secondary-100 px-7 text-base font-normal cursor-pointer`}><RiRobot2Line className="text-dark" /> AI</Button>
             {/* { tooltip &&
               <div className="relative flex justify-center top-[-2rem]">
               <div className="absolute top-[2.8rem] border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-solid border-b-secondary-200 border-b-[1.3rem]"></div>

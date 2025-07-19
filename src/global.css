@@ -60,7 +60,7 @@ p {
 }
 
 .global-responsive-margin {
-  @apply px-[1rem] md:px-[3rem] lg:px-[7.5rem]
+  @apply px-[1rem] md:px-[3rem] lg:px-[7.5rem] xl:max-w-[1600px] mx-auto w-full
 }
 
 /* MEDIA QUERIES */
