@@ -1,4 +1,4 @@
-import { concatString, getDifficultyColor } from '@/lib/utils'
+import { getDifficultyColor } from '@/lib/utils'
 import { FaBowlFood, FaRegClock } from 'react-icons/fa6'
 import { useNavigate } from "react-router";
 
